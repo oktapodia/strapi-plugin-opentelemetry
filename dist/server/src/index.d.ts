@@ -1,0 +1,24 @@
+import { default as bootstrap } from './bootstrap';
+import { default as destroy } from './destroy';
+import { default as register } from './register';
+import { default as config } from './config';
+import { default as contentTypes } from './content-types';
+import { default as controllers } from './controllers';
+import { default as middlewares } from './middlewares';
+import { default as policies } from './policies';
+import { default as routes } from './routes';
+import { default as services } from './services';
+type PluginExport = {
+    register: typeof register;
+    bootstrap: typeof bootstrap;
+    destroy: typeof destroy;
+    config: typeof config;
+    controllers: typeof controllers;
+    routes: typeof routes;
+    services: typeof services;
+    contentTypes: typeof contentTypes;
+    policies: typeof policies;
+    middlewares: typeof middlewares;
+};
+declare const plugin: PluginExport;
+export default plugin;

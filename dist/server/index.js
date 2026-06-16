@@ -676,7 +676,7 @@ const telemetry = ({ strapi }) => {
 const services = {
   telemetry
 };
-const index = {
+const plugin = {
   register,
   bootstrap,
   destroy,
@@ -688,4 +688,4 @@ const index = {
   policies,
   middlewares
 };
-exports.default = index;
+exports.default = plugin;
