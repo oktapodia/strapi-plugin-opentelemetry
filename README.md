@@ -188,7 +188,9 @@ Auto-instrumentation additionally exports standard OTel HTTP, Koa, and PostgreSQ
 
 | Strapi | Plugin |
 | --- | --- |
-| v5.x | v1.x |
+| v5.x | v0.x (pre-release) |
+
+> **Note:** v0.x is experimental. Pin a specific version in production until v1.0.0.
 
 ## License
 

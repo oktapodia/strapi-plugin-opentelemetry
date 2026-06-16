@@ -181,10 +181,10 @@ const shutdownTelemetry = async (logger) => {
     logger?.error("[opentelemetry] shutdown failed", error);
   }
 };
-const getMeter = (name = "strapi-plugin-opentelemetry", version = "1.0.0") => {
+const getMeter = (name = "strapi-plugin-opentelemetry", version = "0.1.0") => {
   return metrics.getMeter(name, version);
 };
-const getTracer = (name = "strapi-plugin-opentelemetry", version = "1.0.0") => {
+const getTracer = (name = "strapi-plugin-opentelemetry", version = "0.1.0") => {
   return trace.getTracer(name, version);
 };
 const isTelemetryInitialized = () => Boolean(globalState[GLOBAL_INITIALIZED_KEY]);
