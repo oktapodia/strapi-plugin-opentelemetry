@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-opentelemetry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenTelemetry traces, metrics, and logs for Strapi via OTLP — fully configurable, push-based observability for any OTLP-compatible backend.",
   "keywords": [
     "strapi",

@@ -19,7 +19,7 @@ type TelemetryService = {
   getTracer: typeof getTracer;
 };
 
-const createTelemetryService = ({ strapi }: { strapi: Core.Strapi }): TelemetryService => {
+const telemetry = ({ strapi }: { strapi: Core.Strapi }): TelemetryService => {
   const getConfig = () => {
     const pluginConfig = strapi.config.get('plugin::opentelemetry') as Record<string, unknown>;
     return resolveConfig(pluginConfig);
@@ -35,4 +35,6 @@ const createTelemetryService = ({ strapi }: { strapi: Core.Strapi }): TelemetryS
   };
 };
 
-export default createTelemetryService;
+export default {
+  telemetry,
+};

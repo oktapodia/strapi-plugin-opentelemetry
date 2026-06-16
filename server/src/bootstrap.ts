@@ -1,13 +1,15 @@
 import type { Core } from '@strapi/strapi';
 
+import { resolveConfig } from './config/resolve-config';
 import registerDatabaseLifecycles from './lifecycles/database';
 import createHttpMetricsMiddleware from './middlewares/http-metrics';
+import { isTelemetryInitialized } from './services/telemetry';
 
 const bootstrap = ({ strapi }: { strapi: Core.Strapi }) => {
-  const telemetry = strapi.plugin('opentelemetry').service('telemetry');
-  const config = telemetry.getConfig();
+  const pluginConfig = strapi.config.get('plugin::opentelemetry') as Record<string, unknown>;
+  const config = resolveConfig(pluginConfig);
 
-  if (!config.enabled || !telemetry.isInitialized()) {
+  if (!config.enabled || !isTelemetryInitialized()) {
     return;
   }
 

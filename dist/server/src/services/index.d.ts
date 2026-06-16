@@ -9,7 +9,9 @@ type TelemetryService = {
     getMeter: typeof getMeter;
     getTracer: typeof getTracer;
 };
-declare const createTelemetryService: ({ strapi }: {
-    strapi: Core.Strapi;
-}) => TelemetryService;
-export default createTelemetryService;
+declare const _default: {
+    telemetry: ({ strapi }: {
+        strapi: Core.Strapi;
+    }) => TelemetryService;
+};
+export default _default;

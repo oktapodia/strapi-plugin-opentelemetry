@@ -1,1 +1,2 @@
-export { default } from './http-metrics';
+declare const _default: {};
+export default _default;

@@ -178,11 +178,11 @@ export const shutdownTelemetry = async (
   }
 };
 
-export const getMeter = (name = 'strapi-plugin-opentelemetry', version = '0.1.0') => {
+export const getMeter = (name = 'strapi-plugin-opentelemetry', version = '0.1.1') => {
   return metrics.getMeter(name, version);
 };
 
-export const getTracer = (name = 'strapi-plugin-opentelemetry', version = '0.1.0') => {
+export const getTracer = (name = 'strapi-plugin-opentelemetry', version = '0.1.1') => {
   return trace.getTracer(name, version);
 };
 

@@ -1,1 +1,1 @@
-export { default } from './http-metrics';
+export default {};
