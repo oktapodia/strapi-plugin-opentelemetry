@@ -281,9 +281,10 @@ export const resolveConfig = (
     serviceVersion,
     serviceInstanceId,
     resourceAttributes,
-    diagLogLevel: useEnvironmentVariables
-      ? parseDiagLogLevel(process.env.OTEL_LOG_LEVEL, merged.diagLogLevel || 'error')
-      : (merged.diagLogLevel || 'error'),
+    diagLogLevel:
+      useEnvironmentVariables && process.env.OTEL_LOG_LEVEL !== undefined
+        ? parseDiagLogLevel(process.env.OTEL_LOG_LEVEL, merged.diagLogLevel || 'error')
+        : merged.diagLogLevel || 'error',
     traces: tracesResolved,
     metrics,
     logs,

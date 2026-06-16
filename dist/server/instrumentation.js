@@ -236,7 +236,7 @@ var resolveConfig = (pluginConfig2 = {}) => {
     serviceVersion,
     serviceInstanceId,
     resourceAttributes,
-    diagLogLevel: useEnvironmentVariables ? parseDiagLogLevel(process.env.OTEL_LOG_LEVEL, merged.diagLogLevel || "error") : merged.diagLogLevel || "error",
+    diagLogLevel: useEnvironmentVariables && process.env.OTEL_LOG_LEVEL !== void 0 ? parseDiagLogLevel(process.env.OTEL_LOG_LEVEL, merged.diagLogLevel || "error") : merged.diagLogLevel || "error",
     traces: tracesResolved,
     metrics: metrics2,
     logs: logs2,

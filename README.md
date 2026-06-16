@@ -68,7 +68,7 @@ When `useEnvironmentVariables` is `true` (default), standard OpenTelemetry envir
 | `OTEL_METRICS_EXPORTER` | `otlp` or `none` |
 | `OTEL_LOGS_EXPORTER` | `otlp` or `none` |
 | `OTEL_METRIC_EXPORT_INTERVAL` | Metrics export interval in ms |
-| `OTEL_LOG_LEVEL` | Diagnostic log level (`error`, `debug`, `verbose`, …) |
+| `OTEL_LOG_LEVEL` | Diagnostic log level (`error` by default; use `debug` only when troubleshooting) |
 
 ### Example: push to a local OpenTelemetry Collector
 
