@@ -1,0 +1,93 @@
+{
+  "name": "strapi-plugin-opentelemetry",
+  "version": "1.0.0",
+  "description": "OpenTelemetry traces, metrics, and logs for Strapi via OTLP — fully configurable, push-based observability for any OTLP-compatible backend.",
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "opentelemetry",
+    "otel",
+    "otlp",
+    "observability",
+    "tracing",
+    "metrics",
+    "monitoring"
+  ],
+  "license": "MIT",
+  "author": "oktapodia (https://github.com/oktapodia)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/oktapodia/strapi-plugin-opentelemetry.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oktapodia/strapi-plugin-opentelemetry/issues"
+  },
+  "homepage": "https://github.com/oktapodia/strapi-plugin-opentelemetry#readme",
+  "type": "commonjs",
+  "exports": {
+    "./package.json": "./package.json",
+    "./instrumentation": {
+      "types": "./dist/server/src/instrumentation.d.ts",
+      "source": "./server/src/instrumentation.ts",
+      "import": "./dist/server/instrumentation.mjs",
+      "require": "./dist/server/instrumentation.js",
+      "default": "./dist/server/instrumentation.js"
+    },
+    "./strapi-server": {
+      "types": "./dist/server/src/index.d.ts",
+      "source": "./server/src/index.ts",
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "strapi-plugin build && node ./scripts/build-instrumentation.mjs",
+    "watch": "strapi-plugin watch",
+    "verify": "strapi-plugin verify",
+    "test:ts:back": "tsc -p server/tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/api-logs": "^0.219.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.62.0",
+    "@opentelemetry/exporter-logs-otlp-grpc": "^0.219.0",
+    "@opentelemetry/exporter-logs-otlp-http": "^0.219.0",
+    "@opentelemetry/exporter-metrics-otlp-grpc": "^0.219.0",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.219.0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.219.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.219.0",
+    "@opentelemetry/host-metrics": "^0.38.3",
+    "@opentelemetry/instrumentation": "^0.219.0",
+    "@opentelemetry/instrumentation-runtime-node": "^0.31.0",
+    "@opentelemetry/resources": "^2.7.1",
+    "@opentelemetry/sdk-logs": "^0.219.0",
+    "@opentelemetry/sdk-metrics": "^2.7.1",
+    "@opentelemetry/sdk-node": "^0.219.0",
+    "@opentelemetry/sdk-trace-base": "^2.7.1",
+    "@opentelemetry/semantic-conventions": "^1.41.1"
+  },
+  "devDependencies": {
+    "@strapi/sdk-plugin": "^6.1.0",
+    "@strapi/strapi": "^5.45.0",
+    "@strapi/typescript-utils": "^5.45.0",
+    "esbuild": "^0.25.12",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^5.4.0"
+  },
+  "strapi": {
+    "kind": "plugin",
+    "name": "opentelemetry",
+    "displayName": "OpenTelemetry",
+    "description": "Export traces, metrics, and logs to any OTLP-compatible observability backend."
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
